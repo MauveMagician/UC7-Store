@@ -5,6 +5,9 @@ export default function Home() {
     <>
       <h1>Bem vindo a mapa</h1>
       <li>
+        <Link href="/inicio">Inicio do site</Link>
+      </li>
+      <li>
         <Link href="/ofertas">Bem vindo a ofertas</Link>
       </li>
       <li>
@@ -15,9 +18,6 @@ export default function Home() {
       </li>
       <li>
         <Link href="/maisvendidos">Bem vindo a mais vendidos</Link>
-      </li>
-      <li>
-        <Link href="/acessorios">Bem vindo a acessorios</Link>
       </li>
       <li>
         <Link href="/suporte">Bem vindo a suporte</Link>
