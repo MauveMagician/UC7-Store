@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Boogaloo&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Boogaloo&family=MedievalSharp&family=Pacifico&display=swap');
 .ban {
     display: flex;
     flex-direction: column;
-    font-family: "Boogaloo", sans-serif;
+    font-family: "MedievalSharp", cursive;
     align-items: center;
     color: white;
     padding: 30px;
@@ -23,6 +23,7 @@
 }
 
 .btn {
+    font-family: "MedievalSharp", cursive;
     font-size: 15px;
     height: 40px;
     width: 80px;
