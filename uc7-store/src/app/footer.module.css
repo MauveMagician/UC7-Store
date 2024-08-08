@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=MedievalSharp&family=Overpass:ital,wght@0,100..900;1,100..900&display=swap");
+.containerprincipal {
+  display: flex;
+  gap: 8vh;
+  background: rgb(130, 130, 130);
+  justify-content: center;
+  padding: 20px;
+  margin: -10px;
+}
+.atendimento {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.institucional {
+  font-size: 2.3vh;
+}
+.minhaconta {
+  font-size: 2.3vh;
+}
+.nossaredes {
+}
+.svgstyle {
+  height: 3vh;
+}
+.titulo {
+  font-size: 3.7vh;
+  font-family: "MedievalSharp", cursive;
+}
+.contatos {
+  display: flex;
+  align-items: center;
+  font-size: 2.3vh;
+}
+.meiodecontato {
+  font-weight: bolder;
+  margin: 0px;
+}
+.svgstyle1 {
+  height: 5.3vh;
+}

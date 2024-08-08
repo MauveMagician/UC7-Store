@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=MedievalSharp&family=Overpass:ital,wght@0,100..900;1,100..900&display=swap");
+.container {
+  font-family: "MedievalSharp", cursive;
+  background: rgb(130, 130, 130);
+  color: black;
+  display: grid;
+  text-align: center;
+  width: 100%;
+  height: 10vh;
+  margin: -10px;
+  grid-template-columns: 1fr 1fr 0.25fr 0.25fr 0.25fr 0.25fr;
+  grid-template-areas: "a b c d e f";
+  gap: 10px;
+  padding: 10px;
+  align-items: center;
+}
+.contato {
+  font-size: 2.5vh;
+  font-family: "MedievalSharp", cursive;
+  grid-area: a;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 0.6s;
+}
+.contato:hover {
+  z-index: 2;
+  transform: scale(1.2);
+  transition: transform 0.6s;
+}
+.loja {
+  grid-area: b;
+  font-size: 30px;
+  transition: transform 0.4s;
+}
+.loja:hover {
+  z-index: 2;
+  transform: scale(1.2);
+  transition: transform 0.6s;
+}
+.carrinho {
+  grid-area: c;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 0.4s;
+}
+
+.carrinho:hover {
+  z-index: 2;
+  transform: scale(1.4);
+  transition: transform 0.6s;
+}
+.carrinho:hover .info {
+  display: block;
+}
+.email {
+  grid-area: d;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 0.4s;
+}
+.email:hover {
+  z-index: 2;
+  transform: scale(1.4);
+  transition: transform 0.6s;
+}
+.email:hover .info {
+  display: block;
+}
+.pesquisar {
+  grid-area: e;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 0.4s;
+}
+.pesquisar:hover {
+  z-index: 2;
+  transform: scale(1.4);
+  transition: transform 0.6s;
+}
+.pesquisar:hover .info {
+  display: block;
+}
+.menu {
+  grid-area: f;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 0.4s;
+}
+.menu:hover {
+  z-index: 2;
+  transform: scale(1.4);
+  transition: transform 0.6s;
+}
+.menu:hover .info {
+  display: block;
+}
+.buttonstyle {
+  height: 25px;
+}
+.info {
+  display: none;
+  font-size: 0.8vw;
+  color: rgb(245, 250, 204);
+  font-family: "MedievalSharp", cursive;
+}
