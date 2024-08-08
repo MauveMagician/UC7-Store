@@ -1,9 +1,7 @@
-import Link from "next/link";
+import Card from "./card"
 
 export default function Home() {
   return (
-    <div>
-      <Link href="/mapa">Ir para o mapa do site</Link>
-    </div>
+    <Card></Card>
   );
 }
