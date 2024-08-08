@@ -1,10 +1,9 @@
 import Link from "next/link";
-import Csecao from "./cabecalhoDeSecao";
 
 export default function Home() {
   return (
     <div>
-      <Csecao></Csecao>
+      <Link href="/mapa">Ir para o mapa do site</Link>
     </div>
   );
 }
