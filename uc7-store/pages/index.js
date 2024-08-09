@@ -1,9 +1,29 @@
 import Link from "next/link";
+import Cabecalho from "@/app/cabecalho";
+import Footer from "@/app/footer";
+import Banner from "@/app/banner";
+import Carta from "@/app/cartaCategoria";
+import styles from "./index.module.css";
+import Csecao from "@/app/cabecalhoDeSecao";
+import Card from "@/app/card";
 
 export default function Home() {
   return (
-    <div>
-      <Link href="/mapa">voltar para o mapa do site</Link>
-    </div>
+    <>
+      <Cabecalho></Cabecalho>
+      <Banner></Banner>
+      <div className={styles.cartas}>
+        <Carta texto="Espadas" imagem="/espada.jpg"></Carta>
+        <Carta
+          texto="Armaduras para Cavalos"
+          imagem="/armaduraparacavalo.jpg"
+        ></Carta>
+        <Carta texto="Escudos" imagem="/escudo.jpg"></Carta>
+        <Carta texto="Machados" imagem="/machados.jpg"></Carta>
+      </div>
+      <Csecao titulo="Lançamentos"></Csecao>
+      <Card></Card>
+      <Footer></Footer>
+    </>
   );
 }

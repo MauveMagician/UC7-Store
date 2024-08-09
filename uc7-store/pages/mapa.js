@@ -5,7 +5,7 @@ export default function Home() {
     <>
       <h1>Bem vindo a mapa</h1>
       <li>
-        <Link href="/inicio">Inicio do site</Link>
+        <Link href="/">Inicio do site</Link>
       </li>
       <li>
         <Link href="/gp">Bem vindo a ofertas</Link>
