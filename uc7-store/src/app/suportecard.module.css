@@ -1,0 +1,17 @@
+.pclass {
+  width: 18vw;
+  background: #dddddd;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  gap: 1.5vh;
+  border-radius: 10px;
+  padding: 1vw;
+  transition: transform 0.6s;
+  cursor: pointer;
+}
+.pclass:hover {
+  z-index: 2;
+  transform: scale(1.2);
+  transition: transform 0.6s;
+}
