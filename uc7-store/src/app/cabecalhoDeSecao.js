@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "./cabecalhoDeSecao.module.css";
 
-export default function Csecao() {
+export default function Csecao({ titulo }) {
   return (
     <>
       <div className={styles.container}>
@@ -11,7 +11,7 @@ export default function Csecao() {
             src="/axe-sword-svgrepo-com.svg"
           ></img>
         </div>
-        <p className={styles.titulo}>Cabeçalho de Seção</p>
+        <p className={styles.titulo}>{titulo}</p>
         <div className={styles.img2}>
           <img
             className={styles.svgstyle}

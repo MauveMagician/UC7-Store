@@ -1,0 +1,6 @@
+.cartas {
+  display: flex;
+
+  gap: 1vw;
+  justify-content: center;
+}
