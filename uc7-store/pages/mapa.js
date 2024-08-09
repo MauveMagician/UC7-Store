@@ -8,16 +8,16 @@ export default function Home() {
         <Link href="/inicio">Inicio do site</Link>
       </li>
       <li>
-        <Link href="/ofertas">Bem vindo a ofertas</Link>
+        <Link href="/gp">Bem vindo a ofertas</Link>
       </li>
       <li>
-        <Link href="/produtos">Bem vindo a produtos</Link>
+        <Link href="/gp">Bem vindo a produtos</Link>
       </li>
       <li>
-        <Link href="/lancamentos">Bem vindo a Lançamentos</Link>
+        <Link href="/gp">Bem vindo a Lançamentos</Link>
       </li>
       <li>
-        <Link href="/maisvendidos">Bem vindo a mais vendidos</Link>
+        <Link href="/gp">Bem vindo a mais vendidos</Link>
       </li>
       <li>
         <Link href="/suporte">Bem vindo a suporte</Link>

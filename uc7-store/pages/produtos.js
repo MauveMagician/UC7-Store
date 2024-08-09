@@ -1,5 +1,6 @@
 import styles from "./produtos.module.css";
 import Cabecalho from "@/app/cabecalho";
+import Footer from "@/app/footer";
 import Image from "next/image";
 
 export default function Home() {
@@ -35,6 +36,7 @@ export default function Home() {
         </div>
       </div>
     </div>
+    <Footer></Footer>
     </>
   );
 }
