@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Bakbak+One&family=Black+Ops+One&family=Boogaloo&family=Donegal+One&family=MedievalSharp&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pacifico&family=Podkova:wght@400..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+.menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-family: "Open Sans", sans-serif;
+    box-sizing: border-box;
+    margin: 1vw;
+    border-radius: 10px;
+    overflow: hidden;
+    width: fit-content;
+    height: fit-content;
+}
+
+.container{
+    display: flex;
+    border: 2px solid;
+    gap: 1vw;
+    padding: 1vw;
+}
+
+.valor {
+    font-size: 30px;
+}
+
+.dev {
+    color: rgb(24, 24, 134);
+}
+
+.stock {
+    color: rgb(19, 56, 19);
+}
+
+.number {
+    display: grid;
+    gap: 1vh;
+}
+
+.cart {
+    cursor: pointer;
+    border: none;
+    background-color: black;
+    color: white;
+    padding: 5px;
+    border-radius: 15px;
+    transition: background-color 0.3s;
+}
+
+.cart:hover {
+    background-color: white;
+    color: black;
+}
+
+.money {
+    cursor: pointer;
+    border: none;
+    background-color: darkslategrey;
+    color: white;
+    padding: 5px;
+    border-radius: 15px;
+    transition: background-color 0.3s;
+}
+
+.money:hover {
+    background-color: rgb(104, 92, 23);
+}
