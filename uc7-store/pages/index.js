@@ -31,7 +31,7 @@ export default function Home() {
         <Carta texto="Machados" imagem="/machados.jpg"></Carta>
       </div>
       <Csecao titulo="Lançamentos"></Csecao>
-      <CardContainer data={[]}></CardContainer>
+      <CardContainer data={data}></CardContainer>
       <Footer></Footer>
     </>
   );

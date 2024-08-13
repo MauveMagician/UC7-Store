@@ -4,7 +4,7 @@ import Card from "./card-produto";
 export default function CardContainer(data) {
   return (
     <div className={styles.container}>
-      {{ data }.map((item, index) => (
+      {data.data.map((item, index) => (
         <Card
           name={item.name}
           price={item.price}
