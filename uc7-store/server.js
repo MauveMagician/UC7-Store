@@ -13,6 +13,7 @@ let db;
 
 app.prepare().then(async () => {
   const server = express();
+  server.use(express.json());
   //conect MongoDB
   const client = new MongoClient(MONGODB_URI, {});
 
@@ -26,6 +27,25 @@ app.prepare().then(async () => {
     res.json(data);
   });
 
+    // Handle POST request to sign up a new user
+    server.post("/api/signup", async (req, res) => {
+      const { username, password } = req.body;
+      const result = await db.collection("users").insertOne({ username, password });
+      res.status(200).json({ message: "Sign up successful", data: result });
+    });
+  
+    // Handle POST request to sign in a user
+    server.post("/api/signin", async (req, res) => {
+      const { username, password } = req.body;
+      console.log("Attempting to sign in user:", username);
+      const user = await db.collection("users").findOne({ username, password });
+      if (user) {
+        req.session.userId = user._id;
+        res.status(200).json({ message: "Sign in successful", sessionId: req.sessionID});
+      } else {
+        res.status(401).json({ message: "Invalid username or password" });
+      }
+    });
   server.all("*", (req, res) => {
     return handle(req, res);
   });
