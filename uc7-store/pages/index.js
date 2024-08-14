@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import Cabecalho from "@/app/cabecalho";
 import Footer from "@/app/footer";
@@ -5,9 +6,17 @@ import Banner from "@/app/banner";
 import Carta from "@/app/cartaCategoria";
 import styles from "./index.module.css";
 import Csecao from "@/app/cabecalhoDeSecao";
-import Card from "@/app/card";
+import CardContainer from "@/app/card-container";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch("/api/data")
+      .then((response) => response.json())
+      .then((data) => setData(data));
+  }, []);
   return (
     <>
       <Cabecalho></Cabecalho>
@@ -22,7 +31,7 @@ export default function Home() {
         <Carta texto="Machados" imagem="/machados.jpg"></Carta>
       </div>
       <Csecao titulo="Lançamentos"></Csecao>
-      <Card></Card>
+      <CardContainer data={data}></CardContainer>
       <Footer></Footer>
     </>
   );

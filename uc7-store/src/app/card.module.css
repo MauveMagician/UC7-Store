@@ -1,72 +1,71 @@
 .container {
- display:flex;
- gap: 20px;
- justify-content: center;
- padding: 20px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
 }
 
 .cartao {
-    border: 1px #ddd;
-    border-radius: 10px;
-    width: 200px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
-    text-align: center;
-    position: relative;
+  border: 1px #ddd;
+  border-radius: 10px;
+  width: 200px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+  text-align: center;
+  position: relative;
 }
 
 .cartao img {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
 .cartao .desconto {
-    position: absolute;
-    background-color: #000000;
-    color: #ffffff;
-    padding: 5px;
-    top: 10px;
-    left: 10px;
-    border-radius: 5px;
-    font-weight: bold;
+  position: absolute;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 5px;
+  top: 10px;
+  left: 10px;
+  border-radius: 5px;
+  font-weight: bold;
 }
 
 .cartao .detalhes {
-    padding: 15px;
+  padding: 15px;
 }
 
 .cartao .titulo {
-    font-size: 16px;
-    font-weight: bold;
-    margin: 10px 0;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px 0;
 }
 
 .cartao .preco {
-    color: #666;
-    text-decoration: line-through;
+  color: #222;
 }
 
 .cartao .precodescontado {
-    color: #4caf50;
-    font-size: 20px;
-    font-weight: bold;
+  color: #4caf50;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .cartao .parcelamento {
-    font-size: 12px;
-    color: #999;
+  font-size: 12px;
+  color: #999;
 }
 
 .cartao button {
-    background-color: #4caf50;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
 }
 
 .span {
-    text-decoration: underline;
+  text-decoration: underline;
 }
