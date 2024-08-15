@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "./login.module.css";
+import styles from "./cadastro.module.css";
 import { useState } from "react";
 import Cabecalho from "@/app/cabecalho";
 import Footer from "@/app/footer";
