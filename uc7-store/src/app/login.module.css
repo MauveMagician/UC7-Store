@@ -2,7 +2,6 @@
 .planet {
   display: flex;
   flex-direction: column;
-  gap: 1vw;
   align-items: center;
   position: absolute;
   top: 50%;
@@ -15,9 +14,10 @@
   background: whitesmoke;
   display: flex;
   flex-direction: column;
-  height: 18vw;
+  height: 17vw;
+  text-align: center;
   align-items: center;
-  gap: 3vw;
+  gap: 1vw;
   width: 15vw;
   border-radius: 20px;
 }
@@ -52,4 +52,7 @@
   font-family: "MedievalSharp", cursive;
   font-size: 1.5vw;
   font-weight: 600;
+}
+.p2 {
+  font-size: 0.95vw;
 }
