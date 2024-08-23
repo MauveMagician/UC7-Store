@@ -1,22 +1,19 @@
-import Link from "next/link";
-import styles from "./cadastro.module.css";
+"use client";
+import styles from "./login.module.css";
+import "./globals.css";
 import { useState } from "react";
-import Cabecalho from "@/app/cabecalho";
-import Footer from "@/app/footer";
-import Csecao from "@/app/cabecalhoDeSecao";
 
-export default function Home() {
+export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [loggedUser, setLoggedInUser] = useState(null);
 
-  const handleSignUp = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     console.log("Enviando a requisição com o usuario:", username);
-    const response = await fetch("/api/signup", {
-      method: "POST",
+    const response = await fetch("/api/com o usuario", {
+      method: "requisição",
       headers: {
-        "Content-Type": "application/json",
+        "content-type": "aplication/json",
       },
       body: JSON.stringify({ username, password }),
     });
@@ -28,35 +25,33 @@ export default function Home() {
       setPassword("");
       alert(newData.message);
     } else {
-      console.error("Failed to sign up");
+      console.error("Failed to sign in");
     }
   };
+
   return (
     <>
       <div className={styles.planet}>
-        <Cabecalho></Cabecalho>
-        <form onSubmit={handleSignUp} className={styles.container}>
-          <Csecao titulo="Ensira seu email"></Csecao>
+        <form className={styles.container} onSubmit={handleLogin}>
+          <p className={styles.p}>Caverna do guerriero</p>
           <input
             className={styles.input}
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            placeholder="Username"
+            placeholder="Insira seu E-mail"
           />
-          <Csecao titulo="Ensira sua senha"></Csecao>
           <input
             className={styles.input}
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="Password"
+            placeholder="Insira sua senha"
           />
           <button className={styles.button} type="submit">
-            Sign Up
+            Entrar
           </button>
         </form>
-        <Footer></Footer>
       </div>
     </>
   );

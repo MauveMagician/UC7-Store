@@ -38,6 +38,7 @@ app.prepare().then(async () => {
 
   // Handle POST request to sign up a new user
   server.post("/api/signup", async (req, res) => {
+    console.log(req.body);
     const { username, password } = req.body;
     const result = await db
       .collection("users")
