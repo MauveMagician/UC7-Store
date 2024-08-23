@@ -1,9 +1,18 @@
+"use client";
 import Link from "next/link";
 import styles from "./cabecalho.module.css";
+import { useState } from "react";
+import Login from "@/app/login";
 
 export default function Cabecalho() {
+  const [showRenderLogin, setRenderLogin] = useState(false);
+
+  const handleRenderLogin = () => {
+    setRenderLogin(!showRenderLogin);
+  };
   return (
     <>
+      {showRenderLogin && <Login />}
       <div className={styles.container}>
         <button className={styles.contato}>contate-me</button>
         <div className={styles.loja}>Caverna do Guerreiro</div>
@@ -14,7 +23,7 @@ export default function Cabecalho() {
           ></img>
           <div className={styles.info}>Carrinho</div>
         </button>
-        <button className={styles.email}>
+        <button className={styles.email} onClick={() => handleRenderLogin()}>
           <img className={styles.buttonstyle} src="/capacete viking.svg"></img>
           <div className={styles.info}>Usuário</div>
         </button>

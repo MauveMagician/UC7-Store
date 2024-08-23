@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "./login.module.css";
+import styles from "./cadastro.module.css";
 import { useState } from "react";
 import Cabecalho from "@/app/cabecalho";
 import Footer from "@/app/footer";
@@ -13,10 +13,10 @@ export default function Home() {
   const handleSignUp = async (e) => {
     e.preventDefault();
     console.log("Enviando a requisição com o usuario:", username);
-    const response = await fetch("/api/com o usuario", {
-      method: "requisição",
+    const response = await fetch("/api/signup", {
+      method: "POST",
       headers: {
-        "content-type": "aplication/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ username, password }),
     });
