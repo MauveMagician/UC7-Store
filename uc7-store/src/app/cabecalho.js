@@ -12,7 +12,7 @@ export default function Cabecalho() {
   };
   return (
     <>
-      {showRenderLogin && <Login />}
+      {showRenderLogin && <Login setRenderLogin={setRenderLogin} />}
       <div className={styles.container}>
         <button className={styles.contato}>contate-me</button>
         <div className={styles.loja}>Caverna do Guerreiro</div>
