@@ -56,3 +56,15 @@
 .p2 {
   font-size: 0.95vw;
 }
+.container2 {
+  padding: 1vw;
+  background: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  height: 7vw;
+  text-align: center;
+  align-items: center;
+  gap: 0.5vw;
+  width: 10vw;
+  border-radius: 20px;
+}

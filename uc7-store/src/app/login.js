@@ -4,7 +4,7 @@ import "./globals.css";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-export default function Login() {
+export default function Login({ setRenderLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loggedInUser, setLoggedInUser] = useState(null);
@@ -19,27 +19,6 @@ export default function Login() {
     }
   }, []);
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    console.log("Enviando a requisição com o usuario:", username);
-    const response = await fetch("/api/com o usuario", {
-      method: "requisição",
-      headers: {
-        "content-type": "aplication/json",
-      },
-      body: JSON.stringify({ username, password }),
-    });
-    console.log("response status:", response.status);
-    if (response.ok) {
-      const newData = await response.json();
-      console.log("Response data:", newData);
-      setUsername("");
-      setPassword("");
-      alert(newData.message);
-    } else {
-      console.error("Failed to sign in");
-    }
-  };
   const handleSignIn = async (e) => {
     e.preventDefault();
     const response = await fetch("/api/signin", {
@@ -58,6 +37,7 @@ export default function Login() {
         document.cookie = `username=${username}; max-age=3600; path=/; SameSite=Strict; Secure`;
         setLoggedInUser(username);
         alert(newData.message);
+        setRenderLogin(false);
       } else {
         console.error(
           "user has not consented to cookies. cannot set session and username cookies."
@@ -71,10 +51,26 @@ export default function Login() {
     <>
       <div className={`${styles.planet} `}>
         {loggedInUser ? (
-          <p>Oi {loggedInUser}!</p>
+          <>
+            <div className={styles.container2}>
+              <p className={styles.p}>Oi {loggedInUser}</p>
+              <button
+                className={styles.button}
+                onClick={() => {
+                  document.cookie =
+                    "session=; max-age=0; path=/; SameSite=Strict; Secure";
+                  document.cookie =
+                    "username=; max-age=0; path=/; SameSite=Strict; Secure";
+                  setLoggedInUser(null);
+                }}
+              >
+                Logout
+              </button>
+            </div>
+          </>
         ) : (
           <form className={styles.container} onSubmit={handleSignIn}>
-            <p className={styles.p}>Caverna do guerriero</p>
+            <p className={styles.p}>Caverna do guerreiro</p>
             <input
               className={styles.input}
               type="text"
