@@ -1,9 +1,12 @@
 import styles from "./card.module.css";
+import Link from "next/link";
 
-export default function Card({ name, price, imagePath }) {
+export default function Card({ name, price, imagePath, id }) {
   return (
     <div className={styles.cartao}>
-      <img src={`${imagePath}`} alt="imagem do produto"></img>
+      <Link href={`/produtos/${id}`}>
+        <img src={`${imagePath}`} alt="imagem do produto"></img>
+      </Link>
       <div className={styles.detalhes}>
         <div className={styles.titulo}>{name}</div>
         <div className={styles.preco}>R$ {price}</div>

@@ -1,66 +1,94 @@
-@import url('https://fonts.googleapis.com/css2?family=Bakbak+One&family=Black+Ops+One&family=Boogaloo&family=Donegal+One&family=MedievalSharp&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pacifico&family=Podkova:wght@400..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
-.menu {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    font-family: "Open Sans", sans-serif;
-    box-sizing: border-box;
-    margin: 1vw;
-    border-radius: 10px;
-    overflow: hidden;
-    width: fit-content;
-    height: fit-content;
+@import url("https://fonts.googleapis.com/css2?family=Bakbak+One&family=Black+Ops+One&family=Boogaloo&family=Donegal+One&family=MedievalSharp&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pacifico&family=Podkova:wght@400..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+.image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 21.2vw;
+  height: 21.2vw;
+  background-color: #ddd;
 }
-
-.container{
-    display: flex;
-    border: 2px solid;
-    gap: 1vw;
-    padding: 1vw;
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1vw;
+  padding: 1vw;
+  margin: 3vw;
+  height: 20vw;
 }
-
+.parte1 {
+  height: 19vw;
+  width: 16vw;
+  gap: 1vw;
+}
+.parte2 {
+  height: 19vw;
+  width: 16vw;
+  gap: 1vw;
+}
+.titulo {
+  font-size: 1.3vw;
+  margin: 0.5vw;
+  font-family: "MedievalSharp", cursive;
+}
 .valor {
-    font-size: 30px;
+  font-size: 1.6vw;
+  margin: 0.5vw;
+  text-decoration: line-through;
 }
-
+.value {
+  font-size: 1.6vw;
+  margin: 0.5vw;
+}
 .dev {
-    color: rgb(24, 24, 134);
+  color: rgb(24, 24, 134);
+  font-size: 0.7vw;
+  margin: 0.5vw;
 }
-
+.description {
+  font-size: 1vw;
+  font-weight: 600;
+  margin: 0.5vw;
+}
 .stock {
-    color: rgb(19, 56, 19);
+  color: rgb(19, 56, 19);
+  font-size: 1vw;
 }
-
+.select {
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: beige;
+}
 .number {
-    display: grid;
-    gap: 1vh;
+  display: grid;
+  gap: 1vh;
 }
 
 .cart {
-    cursor: pointer;
-    border: none;
-    background-color: black;
-    color: white;
-    padding: 5px;
-    border-radius: 15px;
-    transition: background-color 0.3s;
+  cursor: pointer;
+  border: none;
+  background-color: black;
+  color: white;
+  padding: 5px;
+  border-radius: 15px;
+  transition: background-color 0.3s;
 }
 
 .cart:hover {
-    background-color: white;
-    color: black;
+  background-color: white;
+  color: black;
 }
 
 .money {
-    cursor: pointer;
-    border: none;
-    background-color: darkslategrey;
-    color: white;
-    padding: 5px;
-    border-radius: 15px;
-    transition: background-color 0.3s;
+  cursor: pointer;
+  border: none;
+  background-color: darkslategrey;
+  color: white;
+  padding: 5px;
+  border-radius: 15px;
+  transition: background-color 0.3s;
 }
 
 .money:hover {
-    background-color: rgb(104, 92, 23);
+  background-color: rgb(104, 92, 23);
 }

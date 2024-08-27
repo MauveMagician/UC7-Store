@@ -9,6 +9,7 @@ export default function CardContainer(data) {
           name={item.name}
           price={item.price}
           imagePath={item.imagePath}
+          id={item._id}
         ></Card>
       ))}
     </div>

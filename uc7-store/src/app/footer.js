@@ -10,7 +10,7 @@ export default function Footer() {
           <p className={styles.contatos}>
             <img
               className={styles.svgstyle}
-              src="./telephone-receiver-material-svgrepo-com.svg"
+              src="/telephone-receiver-material-svgrepo-com.svg"
             ></img>
             Telephone:
           </p>
@@ -18,7 +18,7 @@ export default function Footer() {
           <p className={styles.contatos}>
             <img
               className={styles.svgstyle}
-              src="./whatsapp-svgrepo-com (1).svg"
+              src="/whatsapp-svgrepo-com (1).svg"
             ></img>
             whatsapp :
           </p>
@@ -26,7 +26,7 @@ export default function Footer() {
           <p className={styles.contatos}>
             <img
               className={styles.svgstyle}
-              src="./email-8-svgrepo-com.svg"
+              src="/email-8-svgrepo-com.svg"
             ></img>
             E-mail
           </p>
@@ -34,7 +34,7 @@ export default function Footer() {
           <p className={styles.contatos}>
             <img
               className={styles.svgstyle}
-              src="./clock-eight-svgrepo-com.svg"
+              src="/clock-eight-svgrepo-com.svg"
             ></img>
             Horário de Atendimento
           </p>
@@ -60,19 +60,19 @@ export default function Footer() {
           <p className={styles.titulo}>Nossas Redes</p>
           <img
             className={styles.svgstyle1}
-            src="./youtube-svgrepo-com.svg"
+            src="/youtube-svgrepo-com.svg"
           ></img>
           <img
             className={styles.svgstyle1}
-            src="./tiktok-icon-white-1-logo-svgrepo-com.svg"
+            src="/tiktok-icon-white-1-logo-svgrepo-com.svg"
           ></img>
           <img
             className={styles.svgstyle1}
-            src="./instagram-svgrepo-com.svg"
+            src="/instagram-svgrepo-com.svg"
           ></img>
           <img
             className={styles.svgstyle1}
-            src="./facebook-svgrepo-com.svg"
+            src="/facebook-svgrepo-com.svg"
           ></img>
         </div>
       </div>

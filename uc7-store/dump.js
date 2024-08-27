@@ -101,7 +101,7 @@ const products = [
   {
     name: "Armadura samurai",
     price: 6488.0,
-    imagePath: "/samurai.jpg",
+    imagePath: "/armadura samurai.jpg",
     discount: 0.2,
     sale: 85,
     releaseDate: new Date(),
@@ -207,6 +207,17 @@ const products = [
     description: "Elmo Viking com chifres",
     stock: 18,
     category: "Elmos",
+  },
+  {
+    name: "Espada Mongol",
+    price: 9000.0,
+    imagePath: "/espada-mongol.jpg",
+    discount: 0,
+    sale: 12,
+    releaseDate: new Date(),
+    description: "Espada Mongol feita a mão",
+    stock: 80,
+    category: "Espadas",
   },
 ];
 for (const product of products) {

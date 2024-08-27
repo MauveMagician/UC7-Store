@@ -30,6 +30,7 @@
   grid-area: b;
   font-size: 30px;
   transition: transform 0.4s;
+  cursor: pointer;
 }
 .loja:hover {
   z-index: 2;
@@ -105,4 +106,8 @@
   font-size: 0.8vw;
   color: rgb(245, 250, 204);
   font-family: "MedievalSharp", cursive;
+}
+.link {
+  text-decoration: none;
+  color: black;
 }

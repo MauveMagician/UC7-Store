@@ -15,7 +15,13 @@ export default function Cabecalho() {
       {showRenderLogin && <Login setRenderLogin={setRenderLogin} />}
       <div className={styles.container}>
         <button className={styles.contato}>contate-me</button>
-        <div className={styles.loja}>Caverna do Guerreiro</div>
+
+        <div className={styles.loja}>
+          {" "}
+          <Link href={"/"} className={styles.link}>
+            Caverna do Guerreiro
+          </Link>
+        </div>
         <button className={styles.carrinho}>
           <img
             className={styles.buttonstyle}
