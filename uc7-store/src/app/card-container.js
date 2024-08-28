@@ -8,6 +8,7 @@ export default function CardContainer(data) {
         <Card
           name={item.name}
           price={item.price}
+          discount={item.discount}
           imagePath={item.imagePath}
           id={item._id}
         ></Card>

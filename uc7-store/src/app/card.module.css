@@ -70,3 +70,14 @@
 .span {
   text-decoration: underline;
 }
+.preco {
+  font-size: 1.6vw;
+  margin: 0.5vw;
+  text-decoration: line-through;
+}
+
+.value {
+  font-size: 1.9vw;
+  margin: 0.5vw;
+  font-weight: bolde;
+}

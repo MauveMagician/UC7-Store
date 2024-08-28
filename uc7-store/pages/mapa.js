@@ -1,27 +1,30 @@
 import Link from "next/link";
+import styles from "./mapa.module.css";
 
 export default function Home() {
   return (
     <>
-      <h1>Bem vindo a mapa</h1>
-      <li>
-        <Link href="/">Inicio do site</Link>
-      </li>
-      <li>
-        <Link href="/gp">Bem vindo a ofertas</Link>
-      </li>
-      <li>
-        <Link href="/gp">Bem vindo a produtos</Link>
-      </li>
-      <li>
-        <Link href="/gp">Bem vindo a Lançamentos</Link>
-      </li>
-      <li>
-        <Link href="/gp">Bem vindo a mais vendidos</Link>
-      </li>
-      <li>
-        <Link href="/suporte">Bem vindo a suporte</Link>
-      </li>
+      <div className={styles.container}>
+        <h1>Mapa do Site</h1>
+        <li>
+          <Link href="/">Inicio do site</Link>
+        </li>
+        <li>
+          <Link href="/ofertas">Ofertas</Link>
+        </li>
+        <li>
+          <Link href="/produtos">Produtos</Link>
+        </li>
+        <li>
+          <Link href="/lancamentos">Lançamentos</Link>
+        </li>
+        <li>
+          <Link href="/maisvendidos">Mais vendidos</Link>
+        </li>
+        <li>
+          <Link href="/suporte">Suporte</Link>
+        </li>
+      </div>
     </>
   );
 }

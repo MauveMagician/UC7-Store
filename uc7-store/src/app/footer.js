@@ -55,6 +55,12 @@ export default function Footer() {
           <p className={styles.letranormal}>Minha conta</p>
           <p className={styles.letranormal}>Meus Pedidos</p>
           <p className={styles.letranormal}>Meu carrinho</p>
+          <p className={styles.letranormal}>
+            {" "}
+            <Link href={"/mapa"} className={styles.link}>
+              Acessar mapa do Site
+            </Link>
+          </p>
         </div>
         <div className={styles.nossasredes}>
           <p className={styles.titulo}>Nossas Redes</p>

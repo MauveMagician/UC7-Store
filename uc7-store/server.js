@@ -26,6 +26,35 @@ app.prepare().then(async () => {
       cookie: { secure: !dev, maxAge: 3600000 }, // 1 hour
     })
   );
+
+  server.get("/api/ofertas", async (req, res) => {
+    const data = await db
+      .collection("produtos")
+      .find({
+        discount: { $gte: 0.25 },
+      })
+      .toArray();
+    res.json(data);
+  });
+  server.get("/api/lancamentos", async (req, res) => {
+    const data = await db
+      .collection("produtos")
+      .find({
+        releaseDate: { $gte: new Date(2024, 7, 26, 19, 30, 54.089) },
+      })
+      .toArray();
+    res.json(data);
+  });
+
+  server.get("/api/sale", async (req, res) => {
+    const data = await db
+      .collection("produtos")
+      .find({
+        sale: { $gte: 50 },
+      })
+      .toArray();
+    res.json(data);
+  });
   await client.connect();
   db = client.db(MONGODB_DB);
   console.log("Conected Mongodb");
