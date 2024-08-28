@@ -1,13 +1,14 @@
 "use client";
 import styles from "./login.module.css";
 import "./globals.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Link from "next/link";
+import { UserContext } from "@/context/UserContext";
 
 export default function Login({ setRenderLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [loggedInUser, setLoggedInUser] = useState(null);
+  const { user, setUser } = useContext(UserContext);
 
   useEffect(() => {
     const usernameCookie = document.cookie
@@ -15,7 +16,7 @@ export default function Login({ setRenderLogin }) {
       .find((row) => row.startsWith("username="));
     if (usernameCookie) {
       const loggedInUsername = usernameCookie.split("=")[1];
-      setLoggedInUser(loggedInUsername);
+      setUser(loggedInUsername)
     }
   }, []);
 
@@ -35,7 +36,7 @@ export default function Login({ setRenderLogin }) {
       if (document.cookie.includes("cookieConsent=true")) {
         document.cookie = `session=${newData.sessionId}; max-age=3600; path=/; SameSite=Strict; Secure`;
         document.cookie = `username=${username}; max-age=3600; path=/; SameSite=Strict; Secure`;
-        setLoggedInUser(username);
+        setUser(username);
         alert(newData.message);
         setRenderLogin(false);
       } else {
@@ -50,10 +51,10 @@ export default function Login({ setRenderLogin }) {
   return (
     <>
       <div className={`${styles.planet} `}>
-        {loggedInUser ? (
+        {user ? (
           <>
             <div className={styles.container2}>
-              <p className={styles.p}>Oi {loggedInUser}</p>
+              <p className={styles.p}>Oi {user}</p>
               <button
                 className={styles.button}
                 onClick={() => {
@@ -61,7 +62,7 @@ export default function Login({ setRenderLogin }) {
                     "session=; max-age=0; path=/; SameSite=Strict; Secure";
                   document.cookie =
                     "username=; max-age=0; path=/; SameSite=Strict; Secure";
-                  setLoggedInUser(null);
+                    setUser(null);
                 }}
               >
                 Logout
@@ -97,3 +98,4 @@ export default function Login({ setRenderLogin }) {
     </>
   );
 }
+//18,38,53,56,64
