@@ -60,23 +60,6 @@ app.prepare().then(async () => {
       res.status(401).json({ message: "Invalid username or password" });
     }
   });
-
-  // New API route to add a product to the cart
-  server.post("/api/cart/add", async (req, res) => {
-    const { productId, quantity } = req.body;
-    const userId = req.session.userId;
-
-    if (!userId) {
-      return res.status(401).json({ message: "User not authenticated" });
-    }
-    try {
-      const updatedCart = await addToCart(userId, productId, quantity);
-      res.status(200).json({ message: "Product added to cart", cart: updatedCart });
-    } catch (error) {
-      console.error("Failed to add product to cart", error);
-      res.status(500).json({ message: "Failed to add product to cart" });
-    }
-  });
   server.all("*", (req, res) => {
     return handle(req, res);
   });

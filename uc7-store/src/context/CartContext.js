@@ -1,9 +1,6 @@
-"use client";
-import { createContext, useContext, useState, useEffect } from "react";
+import { UserContext, useState } from "react";
 import { UserContext } from "./UserContext";
-import { changeQuantityInCart, getTotalPriceInCart, removeFromCart } from "@/query";
-
-const CartContext = createContext();
+import { changeQuantityInCart, getTotalPriceInCart } from "@/query";
 
 export function CartProvider({ children }) {
     const [cart, setCart] = useState(null);
@@ -39,24 +36,6 @@ export function CartProvider({ children }) {
             setCart(updateCart.items);
         } catch (error) {
         console.error("Failed to change quantity in cart:", error);
-        }
-    };
-
-    const handleRemoveFromCart = async (productId) => {
-        try {
-            const updatedCart = await removeFromCart(userId, productId);
-            setCart(updatedCart.items);
-        } catch (error) {
-            console.error("Failed to remove from cart:", error);
-        }
-    };
-
-    const handleTotalPriceInCart = async () => {
-        try {
-            const totalPrice = await getTotalPriceInCart(cart);
-            return totalPrice;
-        } catch (error) {
-            console.error("Failed to get total price in cart:", error);
         }
     };
 
