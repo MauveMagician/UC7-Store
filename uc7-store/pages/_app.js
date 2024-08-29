@@ -1,6 +1,7 @@
 import React from "react";
 import { UserContextProvider } from "@/context/UserContext";
 import { Inter } from "next/font/google";
+import { CartProvider } from "@/context/CartContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,7 +13,9 @@ export const metadata = {
 export default function MyApp({ Component, pageProps }) {
     return (
       <UserContextProvider>
-        <Component {...pageProps} />
+        <CartProvider>
+          <Component {...pageProps} />
+        </CartProvider>
       </UserContextProvider>
     );
   }
