@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import styles from "./lancamentos.module.css";
 import Cabecalho from "@/app/cabecalho";
 import Footer from "@/app/footer";
 import CardContainer from "@/app/card-container";
@@ -16,12 +15,10 @@ export default function Home() {
   }, []);
   return (
     <>
-      <div className={styles.container}>
-        <Cabecalho></Cabecalho>
-        <Csecao titulo="Lançamentos"></Csecao>
-        <CardContainer data={data}></CardContainer>
-        <Footer></Footer>
-      </div>
+      <Cabecalho></Cabecalho>
+      <Csecao titulo="Lançamentos"></Csecao>
+      <CardContainer data={data}></CardContainer>
+      <Footer></Footer>
     </>
   );
 }

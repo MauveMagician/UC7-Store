@@ -9,17 +9,24 @@ export default function Card({ name, price, discount, imagePath, id }) {
 
   return (
     <div className={styles.cartao}>
-      <Link href={`/produtos/${id}`}>
+      <Link href={`/produtos/${id}`} className={styles.img}>
         <img src={`${imagePath}`} alt="imagem do produto"></img>
       </Link>
-      <div className={styles.detalhes}>
-        <div className={styles.titulo}>{name}</div>
-        {discount ? <div className={styles.preco}>R$ {price}</div> : <></>}
+      <div className={styles.titulo}>{name}</div>
+      <div className={styles.price}>
+        {discount ? (
+          <div className={styles.preco}>R$ {price}</div>
+        ) : (
+          <div className={styles.preco}></div>
+        )}
         <p className={styles.value}>
           R$
           <span>{showPrecoDesconto} </span>
         </p>
-        <button>comprar agora</button>
+      </div>
+      <div className={styles.button}>
+        <div className={styles.comprar}>Comprar agora</div>
+        <div className={styles.carrinho}>Adcionar ao Carrinho</div>
       </div>
     </div>
   );
