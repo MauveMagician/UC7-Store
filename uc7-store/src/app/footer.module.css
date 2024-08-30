@@ -47,3 +47,17 @@
 .svgstyle1 {
   height: 5.3vh;
 }
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.letranormal {
+  transition: transform 0.1s;
+  text-decoration: none;
+  cursor: pointer;
+}
+.letranormal:hover {
+  transform: scale(1.05);
+  transition: transform 0.1s;
+}

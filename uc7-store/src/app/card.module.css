@@ -1,72 +1,66 @@
 .container {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
   justify-content: center;
-  padding: 20px;
+  gap: 2vw;
+  margin-bottom: 2vw;
 }
-
 .cartao {
-  border: 1px #ddd;
-  border-radius: 10px;
-  width: 200px;
+  width: 13vw;
+  height: 25vw;
+  border-radius: 22px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
-  text-align: center;
-  position: relative;
+  box-shadow: 0px 0px 3px 0.5px black;
 }
-
 .cartao img {
   width: 100%;
-  height: auto;
+  height: 50%;
+  object-fit: cover;
+  display: block;
 }
-
-.cartao .desconto {
-  position: absolute;
-  background-color: #000000;
-  color: #ffffff;
-  padding: 5px;
-  top: 10px;
-  left: 10px;
-  border-radius: 5px;
-  font-weight: bold;
+.img {
+  overflow: hidden;
+  grid-row: span 4;
 }
-
-.cartao .detalhes {
-  padding: 15px;
+.titulo {
+  height: 15%;
+  font-size: 1.3vw;
+  text-align: center;
+  border-bottom: 0.1px solid grey;
 }
-
-.cartao .titulo {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 10px 0;
+.price {
+  padding-left: 1vw;
+  height: 25%;
+  align-content: center;
+  font-size: 1.2vw;
+  font-weight: 600;
 }
+.button {
+  height: 10%;
 
-.cartao .preco {
-  color: #222;
+  display: flex;
 }
-
-.cartao .precodescontado {
-  color: #4caf50;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.cartao .parcelamento {
-  font-size: 12px;
-  color: #999;
-}
-
-.cartao button {
-  background-color: #4caf50;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
+.comprar {
+  background-color: #38e54d;
+  width: 50%;
   cursor: pointer;
-  margin-top: 10px;
-}
+  text-align: center;
+  align-content: center;
+  font-weight: 600;
 
-.span {
-  text-decoration: underline;
+  border-top: 0.1px solid grey;
+  border-right: 0.1px solid grey;
+}
+.carrinho {
+  background-color: #2192ff;
+  width: 50%;
+  cursor: pointer;
+  text-align: center;
+  align-content: center;
+  font-weight: 600;
+  color: black;
+  border-top: 0.1px solid grey;
+}
+.preco {
+  text-decoration: line-through;
 }
