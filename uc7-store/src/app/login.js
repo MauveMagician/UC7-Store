@@ -38,6 +38,7 @@ export default function Login({ setRenderLogin }) {
         document.cookie = `username=${username}; max-age=3600; path=/; SameSite=Strict; Secure`;
         setUser(username);
         alert(newData.message);
+        console.log(newData.sessionId);
         setRenderLogin(false);
       } else {
         console.error(
