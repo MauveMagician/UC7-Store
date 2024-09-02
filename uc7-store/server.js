@@ -72,6 +72,10 @@ app.prepare().then(async () => {
     const result = await db
       .collection("users")
       .insertOne({ username, password });
+    //Criar o carrinho do usuário vazio
+    await db
+      .collection("carrinho")
+      .insertOne({ userId: result.insertedId, cart: [] }); //preencher com o objeto correto
     res.status(200).json({ message: "Sign up successful", data: result });
   });
 
@@ -94,13 +98,20 @@ app.prepare().then(async () => {
   server.post("/api/cart/add", async (req, res) => {
     const { productId, quantity } = req.body;
     const userId = req.session.userId;
-
     if (!userId) {
       return res.status(401).json({ message: "User not authenticated" });
     }
     try {
-      const updatedCart = await addToCart(userId, productId, quantity);
-      res.status(200).json({ message: "Product added to cart", cart: updatedCart });
+      // Adicionar o id do produto ao carrinho do usuário. Precisamos achar o carrinho correto
+      const result = await db
+        .collection("carrinho")
+        .updateOne(
+          { userId: userId },
+          { $push: { cart: { productId, quantity } } },
+          { upsert: true }
+        );
+      //Responder ao cliente com o OK e uma mensagem de sucesso
+      res.status(200).json({ message: "Product added to cart" });
     } catch (error) {
       console.error("Failed to add product to cart", error);
       res.status(500).json({ message: "Failed to add product to cart" });
@@ -117,3 +128,120 @@ app.prepare().then(async () => {
     console.log(`>Ready on http://localhost:${port}`);
   });
 });
+
+/* vamos usar isso como base para fazer rotas na API
+const CartSchema = new mongoose.Schema({
+  owner: mongoose.Schema.Types.ObjectId,
+  items: [
+    {
+      productId: mongoose.Schema.Types.ObjectId,
+      quantity: Number,
+    },
+  ],
+});
+
+const Carts = mongoose.models.Cart || mongoose.model("Cart", CartSchema);
+
+export async function getOrCreateCart(userId) {
+  await connectToDatabase();
+  try {
+    const cart = await Carts.findOne({ owner: userId });
+
+    if (!cart) {
+      const newCart = await Carts.create({ owner: userId });
+      return newCart;
+    }
+    return cart;
+  } catch (error) {
+    console.error(error);
+    throw new Error("Failed to create or get cart for user.");
+  }
+}
+
+export async function addToCart(userId, productId, quantity) {
+  await connectToDatabase();
+  try {
+    const cart = await getOrCreateCart(userId);
+    const product = await getProductById(productId);
+    if (!product) {
+      throw new Error("Product not found.");
+    }
+    const existingItem = cart.items.find(
+      (item) => item.productId.toString() === productId.toString()
+    );
+    if (existingItem) {
+      existingItem.quantity += quantity;
+    } else {
+      cart.items.push({ productId, quantity });
+    }
+    await cart.save();
+    return cart;
+  } catch (error) {
+    console.error(error);
+    throw new Error("Failed to add item to cart.");
+  }
+}
+
+export async function removeFromCart(userId) {
+  await connectToDatabase();
+  try {
+    const cart = await getOrCreateCart(userId);
+    const product = await getProductById(productId);
+    if (!product) {
+      throw new Error("Products not found.");
+    }
+    cart.items = cart.items.filter(
+      (item) => item.productId.toString() !== productId.toString()
+    );
+    await cart.save();
+    return cart;
+  } catch (error) {
+    console.error(error);
+    throw new Error("Failed to remove item from the cart.");
+  }
+}
+
+export async function changeQuantityInCart(userId, productId, newQuantity) {
+  await connectToDatabase();
+  try {
+    const cart = await getOrCreateCart(userId);
+    const product = await getProductById(productId);
+    if (!product) {
+      throw new Error("Product not found.");
+    }
+    const existingItem = cart.items.find(
+      (item) => item.productId.toString() === productId.toString()
+    );
+    if (!existingItem) {
+      throw new Error("Item not found in cart.");
+    }
+    existingItem.quantity = newQuantity;
+    await cart.save();
+    return cart;
+  } catch (error) {
+    console.error(error);
+    throw new Error("Failed to change quantity in cart.");
+  }
+}
+
+export async function getTotalPriceInCart(cart) {
+  let totalPrice = 0;
+  for (const item of cart.items) {
+    const product = getProductById(item.productId);
+    totalPrice += product.price * item.quantity;
+  }
+  return totalPrice;
+}
+
+export async function getCartItems(userId) {
+  await connectToDatabase();
+  try {
+    const cart = await getOrCreateCart(userId);
+    return cart.items;
+  } catch (error) {
+    console.error(error);
+    throw new Error("Failed to get cart items.");
+  }
+}
+
+*/
