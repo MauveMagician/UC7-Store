@@ -2,12 +2,12 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2vw;
-  margin-bottom: 2vw;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 .cartao {
-  width: 13vw;
-  height: 25vw;
+  width: 220px;
+  height: 380px;
   border-radius: 22px;
   overflow: hidden;
   box-shadow: 0px 0px 3px 0.5px black;
@@ -24,7 +24,7 @@
 }
 .titulo {
   height: 15%;
-  font-size: 1.3vw;
+  font-size: 25px;
   text-align: center;
   border-bottom: 0.1px solid grey;
 }
@@ -32,12 +32,11 @@
   padding-left: 1vw;
   height: 25%;
   align-content: center;
-  font-size: 1.2vw;
+  font-size: 20px;
   font-weight: 600;
 }
 .button {
   height: 10%;
-
   display: flex;
 }
 .comprar {
@@ -63,4 +62,18 @@
 }
 .preco {
   text-decoration: line-through;
+}
+
+@media (max-width: 600px) {
+  .cartao {
+    flex-shrink: 0;
+    box-shadow: none;
+    border: 1px solid black;
+    margin: 1rem;
+  }
+  .container {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+  }
 }
