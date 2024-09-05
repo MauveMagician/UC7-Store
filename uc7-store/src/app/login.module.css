@@ -68,3 +68,31 @@
   width: 10vw;
   border-radius: 20px;
 }
+
+@media (max-width: 600px) {
+  .container2 {
+    width: fit-content;
+    height: fit-content;
+  }
+
+  .container {
+    width: 200px;
+    height: 300px;
+  }
+
+  .button {
+    width: 100px;
+    height: 60px;
+  }
+  .input {
+    width: 200px;
+    height: 60px;
+  }
+  .p {
+    font-size: 5vw;
+    font-weight: 600;
+  }
+  .p2 {
+    font-size: 4vw;
+  }
+}

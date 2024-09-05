@@ -3,6 +3,7 @@ import Link from "next/link";
 import styles from "./cabecalho.module.css";
 import { useState } from "react";
 import Login from "@/app/login";
+import MenuSanduiche from "@/app/menuSanduiche";
 
 export default function Cabecalho() {
   const [showRenderLogin, setRenderLogin] = useState(false);
@@ -22,30 +23,34 @@ export default function Cabecalho() {
             Caverna do Guerreiro
           </Link>
         </div>
-        <button className={styles.carrinho}>
-          <Link href={"/carrinho"}>
+        <MenuSanduiche handleRenderLogin={handleRenderLogin} />
+        <div className={styles.menuNormal}>
+          <button className={styles.carrinho}>
             <img
               className={styles.buttonstyle}
               src="/catapult-svgrepo-com.svg"
             ></img>
-          </Link>
-          <div className={styles.info}>Carrinho</div>
-        </button>
-        <button className={styles.email} onClick={() => handleRenderLogin()}>
-          <img className={styles.buttonstyle} src="/capacete viking.svg"></img>
-          <div className={styles.info}>Usuário</div>
-        </button>
-        <button className={styles.pesquisar}>
-          <img className={styles.buttonstyle} src="/map.svg"></img>
-          <div className={styles.info}>Pesquisar</div>
-        </button>
-        <button className={styles.menu}>
-          <img
-            className={styles.buttonstyle}
-            src="/scroll-unfurled-svgrepo-com.svg"
-          ></img>
-          <div className={styles.info}>Menu</div>
-        </button>
+            <div className={styles.info}>Carrinho</div>
+          </button>
+          <button className={styles.email} onClick={() => handleRenderLogin()}>
+            <img
+              className={styles.buttonstyle}
+              src="/capacete viking.svg"
+            ></img>
+            <div className={styles.info}>Usuário</div>
+          </button>
+          <button className={styles.pesquisar}>
+            <img className={styles.buttonstyle} src="/map.svg"></img>
+            <div className={styles.info}>Pesquisar</div>
+          </button>
+          <button className={styles.menu}>
+            <img
+              className={styles.buttonstyle}
+              src="/scroll-unfurled-svgrepo-com.svg"
+            ></img>
+            <div className={styles.info}>Menu</div>
+          </button>
+        </div>
       </div>
     </>
   );
