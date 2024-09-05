@@ -54,8 +54,8 @@ const CartSchema = new mongoose.Schema({
     {
       productId: mongoose.Schema.Types.ObjectId,
       quantity: Number,
-    }
-  ]
+    },
+  ],
 });
 
 const Carts = mongoose.models.Cart || mongoose.model("Cart", CartSchema);
@@ -160,4 +160,13 @@ export async function getCartItems(userId) {
     console.error(error);
     throw new Error("Failed to get cart items.");
   }
+}
+
+export async function getProductsByCategory(category) {
+  await connectToDatabase(); // Ensure database connection
+  const products = await Products.find({ category: category });
+  if (!products) {
+    throw new Error(`Product with category ${category} not found.`);
+  }
+  return products;
 }
