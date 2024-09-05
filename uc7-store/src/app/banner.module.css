@@ -26,7 +26,7 @@
   font-family: "MedievalSharp", cursive;
   font-size: 15px;
   height: 40px;
-  width: 80px;
+  width: 150px;
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -36,13 +36,26 @@
 
 .btn a {
   text-decoration: none;
+  color: black;
 }
 
 .btn a:visited {
   color: black;
 }
 
+.botoes {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
 .btn:hover {
   background-color: grey;
   color: white;
+}
+
+@media (max-width: 600px) {
+  .botoes {
+    flex-direction: column;
+  }
 }

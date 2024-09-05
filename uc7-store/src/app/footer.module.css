@@ -6,12 +6,12 @@
   justify-content: center;
   width: 100%;
   padding-bottom: 1vw;
-  padding-left: 1.25rem;
 }
 .atendimento {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  margin-left: 1.25rem;
 }
 
 .titulo {
@@ -21,9 +21,15 @@
 
 .institucional {
   font-size: 2.3vh;
+  margin-left: 1.25rem;
 }
 .minhaconta {
   font-size: 2.3vh;
+  margin-left: 1.25rem;
+}
+
+.nossasredes {
+  margin-left: 1.25rem;
 }
 
 .svgstyle {
