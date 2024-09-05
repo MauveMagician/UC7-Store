@@ -16,7 +16,7 @@ export default function Login({ setRenderLogin }) {
       .find((row) => row.startsWith("username="));
     if (usernameCookie) {
       const loggedInUsername = usernameCookie.split("=")[1];
-      setUser(loggedInUsername)
+      setUser(loggedInUsername);
     }
   }, []);
 
@@ -63,7 +63,7 @@ export default function Login({ setRenderLogin }) {
                     "session=; max-age=0; path=/; SameSite=Strict; Secure";
                   document.cookie =
                     "username=; max-age=0; path=/; SameSite=Strict; Secure";
-                    setUser(null);
+                  setUser(null);
                 }}
               >
                 Logout
