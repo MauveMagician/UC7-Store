@@ -23,10 +23,12 @@ export default function Cabecalho() {
           </Link>
         </div>
         <button className={styles.carrinho}>
-          <img
-            className={styles.buttonstyle}
-            src="/catapult-svgrepo-com.svg"
-          ></img>
+          <Link href={"/carrinho"}>
+            <img
+              className={styles.buttonstyle}
+              src="/catapult-svgrepo-com.svg"
+            ></img>
+          </Link>
           <div className={styles.info}>Carrinho</div>
         </button>
         <button className={styles.email} onClick={() => handleRenderLogin()}>

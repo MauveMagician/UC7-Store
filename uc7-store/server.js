@@ -5,7 +5,7 @@ const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
-const { MongoClient } = require("mongodb");
+const { MongoClient, ObjectId } = require("mongodb");
 const MONGODB_URI = "mongodb://localhost:27017";
 const MONGODB_DB = "caverna";
 
@@ -26,6 +26,16 @@ app.prepare().then(async () => {
       cookie: { secure: !dev, maxAge: 3600000 }, // 1 hour
     })
   );
+  server.get("/api/product/:id", async (req, res) => {
+    const { id } = req.params;
+    const product = await db
+      .collection("produtos")
+      .findOne({ _id: new ObjectId(String(id)) });
+    if (!product) {
+      return res.status(404).json({ message: "Product not found" });
+    }
+    res.json(product);
+  });
 
   server.get("/api/ofertas", async (req, res) => {
     const data = await db
@@ -63,6 +73,15 @@ app.prepare().then(async () => {
   server.get("/api/data", async (red, res) => {
     const data = await db.collection("produtos").find({}).toArray();
     res.json(data);
+  });
+  server.get("/api/carrinho", async (req, res) => {
+    const userId = req.session.userId;
+    if (!userId) {
+      return res.status(401).json({ message: "User not authenticated" });
+    }
+    const data = await db.collection("carrinho").findOne({ userId: userId });
+    console.log(data.cart);
+    res.json(data.cart);
   });
 
   // Handle POST request to sign up a new user
