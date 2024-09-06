@@ -1,5 +1,6 @@
 import styles from "./menuSanduiche.module.css";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function MenuSanduiche({ handleRenderLogin }) {
   const [showRenderLogin, setRenderLogin] = useState(false);
@@ -16,11 +17,13 @@ export default function MenuSanduiche({ handleRenderLogin }) {
             <ul className={styles.lista}>
               <li>
                 <button className={styles.carrinho}>
-                  <img
-                    className={styles.buttonstyle}
-                    src="/catapult-svgrepo-com.svg"
-                  ></img>
-                  <div className={styles.info}>Carrinho</div>
+                  <Link href={"/carrinho"}>
+                    <img
+                      className={styles.buttonstyle}
+                      src="/catapult-svgrepo-com.svg"
+                    ></img>
+                    <div className={styles.info}>Carrinho</div>
+                  </Link>
                 </button>
               </li>
               <li>
@@ -40,11 +43,13 @@ export default function MenuSanduiche({ handleRenderLogin }) {
               </li>
               <li>
                 <button className={styles.menu}>
-                  <img
-                    className={styles.buttonstyle}
-                    src="/scroll-unfurled-svgrepo-com.svg"
-                  ></img>
-                  <div className={styles.info}>Menu</div>
+                  <Link href={"/suporte"}>
+                    <img
+                      className={styles.buttonstyle}
+                      src="/scroll-unfurled-svgrepo-com.svg"
+                    ></img>
+                    <div className={styles.info}>Menu</div>
+                  </Link>
                 </button>
               </li>
             </ul>
