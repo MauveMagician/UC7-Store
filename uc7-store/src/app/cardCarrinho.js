@@ -1,20 +1,49 @@
 import Link from "next/link";
 import styles from "./cardCarrinho.module.css";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import Image from "next/image";
 
 export default function CardCarrinho({ data }) {
   const [item, setItem] = useState(data);
   const [showPrecoDesconto, setPrecoDesconto] = useState(0);
+  const [qtd, setQtd] = useState(1);
+  const router = useRouter();
   useEffect(() => {
     console.log("item", item);
     fetch(`/api/product/${item.productId}`)
       .then((response) => response.json())
-      .then((item) => setItem(item));
+      .then((item) => {
+        setItem(item);
+      });
   }, []);
   useEffect(() => {
     setPrecoDesconto(item.price - item.price * item.discount);
+    setQtd(item.quantity);
   }, [item]);
+
+  const removercarrinho = () => {
+    fetch("/api/cart/remove/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ productId: item._id }),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+    router.reload();
+  };
+  const handlequantidade = (e) => {
+    fetch("/api/cart/change/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        productId: item._id,
+        quantity: Number(e.target.value),
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+  };
 
   return (
     <div className={styles.container}>
@@ -47,16 +76,23 @@ export default function CardCarrinho({ data }) {
 
         <div className={styles.stock}>
           <p className={styles.p}>Em estoque:{item.stock}</p>
+          <p>quantidade:{}</p>
         </div>
 
         <div className={styles.number}>
-          <select className={styles.select}>
-            <option>Quantidade: 0</option>
-            <option>Quantidade: 1</option>
-            <option>Quantidade: 2</option>
-            <option>Quantidade: 3</option>
+          <select
+            className={styles.select}
+            onChange={handlequantidade}
+            value={qtd}
+          >
+            <option value={1}>1</option>
+            <option value={2}>2</option>
+            <option value={3}>3</option>
+            <option value={4}>4</option>
           </select>
-          <button className={styles.cart}>Remover do carrinho</button>
+          <button className={styles.cart} onClick={removercarrinho}>
+            Remover do carrinho
+          </button>
           <button className={styles.money}>Comprar agora</button>
         </div>
       </div>

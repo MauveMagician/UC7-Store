@@ -83,8 +83,55 @@ app.prepare().then(async () => {
     console.log(data.cart);
     res.json(data.cart);
   });
+  server.post("/api/cart/change/", async (req, res) => {
+    const { productId, quantity } = req.body;
+    const userId = req.session.userId;
+    if (!userId) {
+      return res.status(401).json({ message: "User not authenticated" });
+    }
+    try {
+      // Update the quantity of the specified product in the cart
+      const result = await db
+        .collection("carrinho")
+        .updateOne(
+          { userId: userId, "cart.productId": productId },
+          { $set: { "cart.$.quantity": quantity } }
+        );
+      // Check if the product was found in the cart
+      if (result.matchedCount === 0) {
+        return res.status(404).json({ message: "Product not found in cart" });
+      }
+      // Respond to the client with the OK and a success message
+      res
+        .status(200)
+        .json({ message: "Product quantity updated successfully" });
+    } catch (error) {
+      console.error("Failed to update product quantity in cart", error);
+      res
+        .status(500)
+        .json({ message: "Failed to update product quantity in cart" });
+    }
+  });
 
-  // Handle POST request to sign up a new user
+  server.post("/api/cart/remove/", async (req, res) => {
+    const { productId } = req.body;
+    const userId = req.session.userId;
+    if (!userId) {
+      return res.status(401).json({ message: "User not authenticated" });
+    }
+    try {
+      // Remover o produto do carrinho
+      const result = await db
+        .collection("carrinho")
+        .updateOne({ userId: userId }, { $pull: { cart: { productId } } });
+      //Responder ao cliente com o OK e uma mensagem de sucesso
+      res.status(200).json({ message: "Product removed from cart" });
+    } catch (error) {
+      console.error("Failed to remove product from cart", error);
+      res.status(500).json({ message: "Failed to remove product from cart" });
+    }
+  });
+
   server.post("/api/signup", async (req, res) => {
     console.log(req.body);
     const { username, password } = req.body;
