@@ -6,6 +6,7 @@ import Footer from "@/app/footer";
 import Csecao from "@/app/cabecalhoDeSecao";
 import { useEffect, useState } from "react";
 import CardCarrinhoContainer from "@/app/cardCarrinhoContainer";
+import Subtotal from "@/app/subtotal";
 
 export default function Carrinho() {
   const [data, setData] = useState([]);
@@ -18,11 +19,14 @@ export default function Carrinho() {
   // TODO: Implementar a lista de produtos do carrinho
   return (
     <>
-      <Cabecalho></Cabecalho>
-      <Csecao titulo="Seu carrinho"></Csecao>
-      <CardCarrinhoContainer data={data}></CardCarrinhoContainer>
-      <div className={styles.container}></div>
-      <Footer></Footer>
+      <div className={styles.container}>
+        <Cabecalho></Cabecalho>
+        <Csecao titulo="Seu carrinho"></Csecao>
+        <CardCarrinhoContainer data={data}></CardCarrinhoContainer>
+        <div className={styles.container}></div>
+        <Subtotal></Subtotal>
+        <Footer></Footer>
+      </div>
     </>
   );
 }

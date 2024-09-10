@@ -26,6 +26,7 @@ app.prepare().then(async () => {
       cookie: { secure: !dev, maxAge: 3600000 }, // 1 hour
     })
   );
+
   server.get("/api/product/:id", async (req, res) => {
     const { id } = req.params;
     const product = await db
@@ -56,6 +57,30 @@ app.prepare().then(async () => {
     res.json(data);
   });
 
+  server.get("/api/data/subtotal", async (req, res) => {
+    //definir quem é o usuario logado
+    const userId = req.session.userId;
+    if (!userId) {
+      return res.status(401).json({ message: "User not authenticated" });
+    }
+    //puxar do banco de dados o carrinho do usuario
+    const data = await db.collection("carrinho").findOne({ userId: userId });
+    console.log(data.cart);
+    //calcular o subtotal do carrinho
+    let subtotal = 0;
+    for (let item of data.cart) {
+      //encontrar o produto no banco de dados para cada item do carrinho
+      const product = await db
+        .collection("produtos")
+        .findOne({ _id: new ObjectId(String(item.productId)) });
+      //somar o preco do item multiplicado pelo numero de unidades
+      subtotal +=
+        (product.price - product.price * product.discount) * item.quantity;
+    }
+    //respoder ao cliente com o subtotal
+    console.log("subtotal", subtotal);
+    res.json({ subtotal });
+  });
   server.get("/api/sale", async (req, res) => {
     const data = await db
       .collection("produtos")
@@ -83,8 +108,55 @@ app.prepare().then(async () => {
     console.log(data.cart);
     res.json(data.cart);
   });
+  server.post("/api/cart/change/", async (req, res) => {
+    const { productId, quantity } = req.body;
+    const userId = req.session.userId;
+    if (!userId) {
+      return res.status(401).json({ message: "User not authenticated" });
+    }
+    try {
+      // Update the quantity of the specified product in the cart
+      const result = await db
+        .collection("carrinho")
+        .updateOne(
+          { userId: userId, "cart.productId": productId },
+          { $set: { "cart.$.quantity": quantity } }
+        );
+      // Check if the product was found in the cart
+      if (result.matchedCount === 0) {
+        return res.status(404).json({ message: "Product not found in cart" });
+      }
+      // Respond to the client with the OK and a success message
+      res
+        .status(200)
+        .json({ message: "Product quantity updated successfully" });
+    } catch (error) {
+      console.error("Failed to update product quantity in cart", error);
+      res
+        .status(500)
+        .json({ message: "Failed to update product quantity in cart" });
+    }
+  });
 
-  // Handle POST request to sign up a new user
+  server.post("/api/cart/remove/", async (req, res) => {
+    const { productId } = req.body;
+    const userId = req.session.userId;
+    if (!userId) {
+      return res.status(401).json({ message: "User not authenticated" });
+    }
+    try {
+      // Remover o produto do carrinho
+      const result = await db
+        .collection("carrinho")
+        .updateOne({ userId: userId }, { $pull: { cart: { productId } } });
+      //Responder ao cliente com o OK e uma mensagem de sucesso
+      res.status(200).json({ message: "Product removed from cart" });
+    } catch (error) {
+      console.error("Failed to remove product from cart", error);
+      res.status(500).json({ message: "Failed to remove product from cart" });
+    }
+  });
+
   server.post("/api/signup", async (req, res) => {
     console.log(req.body);
     const { username, password } = req.body;
