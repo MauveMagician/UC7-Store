@@ -3,6 +3,7 @@ import styles from "./cardCarrinho.module.css";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import Subtotal from "./subtotal";
 
 export default function CardCarrinho({ data }) {
   const [item, setItem] = useState(data);

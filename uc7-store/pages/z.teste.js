@@ -1,7 +1,9 @@
-import Cabecalho from "@/app/cabecalho";
-import Footer from "@/app/footer";
-import Card from "@/app/card";
+import Subtotal from "@/app/subtotal";
 
 export default function Home() {
-  return <></>;
+  return (
+    <>
+      <Subtotal></Subtotal>
+    </>
+  );
 }

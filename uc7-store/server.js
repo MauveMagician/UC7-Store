@@ -26,6 +26,7 @@ app.prepare().then(async () => {
       cookie: { secure: !dev, maxAge: 3600000 }, // 1 hour
     })
   );
+
   server.get("/api/product/:id", async (req, res) => {
     const { id } = req.params;
     const product = await db
@@ -56,6 +57,30 @@ app.prepare().then(async () => {
     res.json(data);
   });
 
+  server.get("/api/data/subtotal", async (req, res) => {
+    //definir quem é o usuario logado
+    const userId = req.session.userId;
+    if (!userId) {
+      return res.status(401).json({ message: "User not authenticated" });
+    }
+    //puxar do banco de dados o carrinho do usuario
+    const data = await db.collection("carrinho").findOne({ userId: userId });
+    console.log(data.cart);
+    //calcular o subtotal do carrinho
+    let subtotal = 0;
+    for (let item of data.cart) {
+      //encontrar o produto no banco de dados para cada item do carrinho
+      const product = await db
+        .collection("produtos")
+        .findOne({ _id: new ObjectId(String(item.productId)) });
+      //somar o preco do item multiplicado pelo numero de unidades
+      subtotal +=
+        (product.price - product.price * product.discount) * item.quantity;
+    }
+    //respoder ao cliente com o subtotal
+    console.log("subtotal", subtotal);
+    res.json({ subtotal });
+  });
   server.get("/api/sale", async (req, res) => {
     const data = await db
       .collection("produtos")
