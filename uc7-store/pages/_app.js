@@ -1,6 +1,7 @@
 import React from "react";
 import { UserContextProvider } from "@/context/UserContext";
 import { Inter } from "next/font/google";
+import "@/app/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -10,9 +11,9 @@ export const metadata = {
 };
 
 export default function MyApp({ Component, pageProps }) {
-    return (
-      <UserContextProvider>
-        <Component {...pageProps} />
-      </UserContextProvider>
-    );
-  }
+  return (
+    <UserContextProvider>
+      <Component {...pageProps} />
+    </UserContextProvider>
+  );
+}

@@ -8,9 +8,6 @@
   padding-bottom: 1vw;
 }
 .atendimento {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
   margin-left: 1.25rem;
 }
 
@@ -73,5 +70,32 @@
 @media (max-width: 600px) {
   .containerprincipal {
     flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .containerprincipal {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    height: 79%;
+    position: relative;
+  }
+  .atendimento {
+    height: fit-content;
+  }
+  .institucional {
+    height: fit-content;
+  }
+  .minhaconta {
+    height: fit-content;
+  }
+  .nossasredes {
+    height: fit-content;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .containerprincipal {
+    height: 80%;
   }
 }
