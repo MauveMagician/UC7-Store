@@ -8,9 +8,7 @@
   padding-bottom: 1vw;
 }
 .atendimento {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+  margin-left: 1.25rem;
 }
 
 .titulo {
@@ -20,15 +18,22 @@
 
 .institucional {
   font-size: 2.3vh;
+  margin-left: 1.25rem;
 }
 .minhaconta {
   font-size: 2.3vh;
+  margin-left: 1.25rem;
+}
+
+.nossasredes {
+  margin-left: 1.25rem;
 }
 
 .svgstyle {
   height: 3vh;
   margin-right: 0.5vw;
 }
+
 .titulo {
   font-size: 3.7vh;
   font-family: "MedievalSharp", cursive;
@@ -65,5 +70,33 @@
 @media (max-width: 600px) {
   .containerprincipal {
     flex-direction: column;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .containerprincipal {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: max-content max-content;
+    position: relative;
+    gap: 1vh;
+    height: fit-content;
+  }
+  .atendimento {
+    height: fit-content;
+  }
+  .institucional {
+    height: fit-content;
+  }
+  .minhaconta {
+    height: fit-content;
+  }
+  .nossasredes {
+    height: fit-content;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .containerprincipal {
+    height: 80%;
   }
 }

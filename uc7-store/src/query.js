@@ -57,3 +57,12 @@ const CartSchema = new mongoose.Schema({
     },
   ],
 });
+
+export async function getProductsByCategory(category) {
+  await connectToDatabase(); // Ensure database connection
+  const products = await Products.find({ category: category });
+  if (!products) {
+    throw new Error(`Product with category ${category} not found.`);
+  }
+  return products;
+}

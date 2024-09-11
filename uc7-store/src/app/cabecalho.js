@@ -44,11 +44,13 @@ export default function Cabecalho() {
             <div className={styles.info}>Pesquisar</div>
           </button>
           <button className={styles.menu}>
-            <img
-              className={styles.buttonstyle}
-              src="/scroll-unfurled-svgrepo-com.svg"
-            ></img>
-            <div className={styles.info}>Menu</div>
+            <Link href={"/suporte"}>
+              <img
+                className={styles.buttonstyle}
+                src="/scroll-unfurled-svgrepo-com.svg"
+              ></img>
+              <div className={styles.info}>Menu</div>
+            </Link>
           </button>
         </div>
       </div>

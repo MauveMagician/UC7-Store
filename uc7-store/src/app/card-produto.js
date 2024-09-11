@@ -24,7 +24,7 @@ export default function Card({ name, price, discount, imagePath, id }) {
   return (
     <div className={styles.cartao}>
       <Link href={`/produtos/${id}`} className={styles.img}>
-        <img src={`${imagePath}`} alt="imagem do produto"></img>
+        <img src={`/${imagePath}`} alt="imagem do produto"></img>
       </Link>
       <div className={styles.titulo}>{name}</div>
       <div className={styles.price}>

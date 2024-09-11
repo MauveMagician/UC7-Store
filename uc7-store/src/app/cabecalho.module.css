@@ -38,7 +38,7 @@
   transition: transform 0.6s;
 }
 .carrinho {
-  grid-area: c;
+  grid-area: a;
   border: none;
   background: transparent;
   cursor: pointer;
@@ -54,7 +54,7 @@
   display: block;
 }
 .email {
-  grid-area: d;
+  grid-area: b;
   border: none;
   background: transparent;
   cursor: pointer;
@@ -69,7 +69,7 @@
   display: block;
 }
 .pesquisar {
-  grid-area: e;
+  grid-area: c;
   border: none;
   background: transparent;
   cursor: pointer;
@@ -84,12 +84,17 @@
   display: block;
 }
 .menu {
-  grid-area: f;
+  grid-area: d;
   border: none;
   background: transparent;
   cursor: pointer;
   transition: transform 0.4s;
 }
+
+.menu a {
+  text-decoration: none;
+}
+
 .menu:hover {
   z-index: 2;
   transform: scale(1.4);
@@ -113,10 +118,10 @@
 }
 
 .menuNormal {
+  display: grid;
   gap: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "a b c d";
 }
 
 @media (max-width: 600px) {

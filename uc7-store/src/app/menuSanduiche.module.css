@@ -44,6 +44,15 @@
   gap: 2.5px;
 }
 
+.carrinho a {
+  display: flex;
+  text-decoration: none;
+  color: black;
+  margin: none;
+  padding: none;
+  gap: 0.5rem;
+}
+
 .email {
   display: flex;
   width: 100%;
@@ -75,6 +84,13 @@
   background: none;
   font-size: 1rem;
   gap: 2.5px;
+}
+
+.menu a {
+  display: flex;
+  text-decoration: none;
+  color: black;
+  gap: 0.5rem;
 }
 
 .buttonstyle {

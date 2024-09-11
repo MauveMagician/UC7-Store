@@ -1,39 +1,61 @@
-@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Boogaloo&family=MedievalSharp&family=Pacifico&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Boogaloo&family=MedievalSharp&family=Pacifico&display=swap");
 .ban {
-    display: flex;
-    flex-direction: column;
-    font-family: "MedievalSharp", cursive;
-    align-items: center;
-    color: white;
-    padding: 30px;
-    box-sizing: border-box;
-    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(/dragao.jpg) no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-
+  display: flex;
+  flex-direction: column;
+  font-family: "MedievalSharp", cursive;
+  align-items: center;
+  color: white;
+  padding: 30px;
+  box-sizing: border-box;
+  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+    url(/dragao.jpg) no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .pin {
-    text-align: center;
+  text-align: center;
 }
 
 .text {
-    text-align: center;
-    font-size: 30px;
+  text-align: center;
+  font-size: 30px;
 }
 
 .btn {
-    font-family: "MedievalSharp", cursive;
-    font-size: 15px;
-    height: 40px;
-    width: 80px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    transition: color 0.3s ease;
+  font-family: "MedievalSharp", cursive;
+  font-size: 15px;
+  height: 40px;
+  width: 150px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  transition: color 0.3s ease;
 }
+
+.btn a {
+  text-decoration: none;
+  color: black;
+}
+
+.btn a:visited {
+  color: black;
+}
+
+.botoes {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
 .btn:hover {
-    background-color: grey;
-    color: white;
+  background-color: grey;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .botoes {
+    flex-direction: column;
+  }
 }

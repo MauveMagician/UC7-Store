@@ -9,7 +9,7 @@ export default function Home() {
     <>
       <Cabecalho></Cabecalho>
       <div className={styles.pclass}>
-        <p>Bem vindo(a) ao nosso suporte</p>
+        <h2 className={styles.heading}>Bem vindo(a) ao nosso suporte</h2>
       </div>
       <div className={styles.suportecard}>
         <Suportecard
@@ -29,7 +29,6 @@ export default function Home() {
           imagem="/hook-svgrepo-com.svg"
         ></Suportecard>
       </div>
-
       <Footer></Footer>
     </>
   );
