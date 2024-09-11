@@ -1,16 +1,11 @@
 body {
   margin: 0px;
   box-sizing: border-box;
+  height: 100vh; /* Set the body height to 100% of the viewport height */
+  display: flex;
+  flex-direction: column;
 }
 
-@media only screen and (max-width: 1024px) {
-  #__next {
-    height: 100vh;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  #__next {
-    height: 100vh;
-  }
+#__next {
+  flex: 1; /* Allow __next to take up the remaining space */
 }

@@ -73,13 +73,14 @@
   }
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (min-width: 768px) {
   .containerprincipal {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    height: 79%;
+    grid-template-rows: max-content max-content;
     position: relative;
+    gap: 1vh;
+    height: fit-content;
   }
   .atendimento {
     height: fit-content;

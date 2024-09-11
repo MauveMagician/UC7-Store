@@ -29,7 +29,6 @@ export default function Home() {
           imagem="/hook-svgrepo-com.svg"
         ></Suportecard>
       </div>
-
       <Footer></Footer>
     </>
   );
