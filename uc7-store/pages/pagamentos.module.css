@@ -1,0 +1,117 @@
+.planet {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px;
+}
+.container {
+  width: 22vw;
+  height: 65vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.title {
+  font-size: 2vw;
+  margin-bottom: 1vw;
+  font-weight: 600;
+}
+.asterisco {
+  font-size: 1.1vw;
+}
+.input {
+  width: 20vw;
+  height: 1.2vw;
+  border-radius: 10px;
+  border: none;
+  outline: solid 1px black;
+}
+.input:focus {
+  outline: solid 2px dodgerblue;
+  border-radius: 10px;
+  border: none;
+}
+.campos {
+  font-weight: bolder;
+}
+.numero {
+  display: flex;
+  gap: 1vw;
+}
+.input3 {
+  width: 9.5vw;
+  height: 1.2vw;
+  border-radius: 10px;
+  border: none;
+  outline: solid 1px black;
+}
+.input3:focus {
+  outline: solid 2px rgb(92, 189, 242);
+  border-radius: 10px;
+  border: none;
+}
+.fieldset {
+  border: none;
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  margin: 0px;
+}
+.pag {
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
+}
+.pagamentos {
+  display: flex;
+  gap: 1vw;
+}
+.img {
+  height: 4vw;
+}
+.svg {
+  height: 100%;
+}
+.pfooter {
+  width: 20vw;
+}
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  gap: 1vw;
+}
+.button {
+  background-color: chartreuse;
+  width: 9.5vw;
+  height: 1.5vw;
+  border-radius: 10px;
+  border: none;
+  outline: solid 2px black;
+  cursor: pointer;
+}
+.button:hover {
+  z-index: 2;
+  transform: scale(1.1);
+  transition: transform 0.6s;
+}
+.button2 {
+  cursor: pointer;
+  background-color: #f5004f;
+  width: 9.5vw;
+  height: 1.5vw;
+  border-radius: 10px;
+  border: none;
+  outline: solid 2px black;
+}
+.button2:hover {
+  z-index: 2;
+  transform: scale(1.1);
+  transition: transform 0.6s;
+}
