@@ -8,15 +8,15 @@ export default function Banner() {
       <h1 className={styles.pin}>Bem-vindos a nossa Loja Medieval!</h1>
       <p className={styles.text}>Venha conferir nossa loja.</p>
       <div className={styles.botoes}>
-        <button className={styles.btn}>
-          <Link href={"/lancamentos"}>Lançamentos</Link>
-        </button>
-        <button className={styles.btn}>
-          <Link href={"/ofertas"}>Ofertas</Link>
-        </button>
-        <button className={styles.btn}>
-          <Link href={"/maisvendidos"}>Mais Vendidos</Link>
-        </button>
+        <Link href={"/lancamentos"}>
+          <button className={styles.btn}>Lançamentos</button>
+        </Link>
+        <Link href={"/ofertas"}>
+          <button className={styles.btn}>Ofertas</button>
+        </Link>
+        <Link href={"/maisvendidos"}>
+          <button className={styles.btn}>Mais Vendidos</button>
+        </Link>
       </div>
     </div>
   );

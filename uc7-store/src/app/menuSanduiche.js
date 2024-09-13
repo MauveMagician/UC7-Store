@@ -1,12 +1,19 @@
 import styles from "./menuSanduiche.module.css";
 import { useState } from "react";
+import { useMedia } from "use-media";
 import Link from "next/link";
+import Pesquisar from "@/app/pesquisar";
 
 export default function MenuSanduiche({ handleRenderLogin }) {
   const [showRenderLogin, setRenderLogin] = useState(false);
   const [menuVisible, setMenuVisible] = useState(false);
+  const [searchVisible, setSearchVisible] = useState(false);
+  const isPhone = useMedia("(max-width: 600px)");
   const handleMenuClick = () => {
     setMenuVisible(!menuVisible);
+  };
+  const handleSearchClick = () => {
+    setSearchVisible(!searchVisible);
   };
   return (
     <>
@@ -36,7 +43,10 @@ export default function MenuSanduiche({ handleRenderLogin }) {
                 </button>
               </li>
               <li>
-                <button className={styles.pesquisar}>
+                <button
+                  className={styles.pesquisar}
+                  onClick={handleSearchClick}
+                >
                   <img className={styles.buttonstyle} src="/map.svg"></img>
                   <div className={styles.info}>Pesquisar</div>
                 </button>
@@ -61,6 +71,12 @@ export default function MenuSanduiche({ handleRenderLogin }) {
           <div className={styles.opcao1}></div>
         </div>
       </div>
+      {searchVisible && isPhone && (
+        <Pesquisar
+          setRenderLogin={setRenderLogin}
+          setSearchVisible={setSearchVisible}
+        />
+      )}
     </>
   );
 }
