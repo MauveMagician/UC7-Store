@@ -1,0 +1,46 @@
+.container {
+  align-items: center;
+  justify-content: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  flex-shrink: 0;
+  background-color: whitesmoke;
+}
+
+.containerfilho {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem;
+  width: 100%;
+}
+
+.buttonstyle {
+  width: 1.5rem;
+  margin-left: 1rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.input:focus {
+  outline-color: dodgerblue;
+}
+
+@media (max-width: 600px) {
+  .container {
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+    width: 100vw;
+    top: 70px;
+  }
+}

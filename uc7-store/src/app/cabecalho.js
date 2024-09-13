@@ -1,13 +1,19 @@
 "use client";
 import Link from "next/link";
 import styles from "./cabecalho.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useMedia } from "use-media";
 import Login from "@/app/login";
 import MenuSanduiche from "@/app/menuSanduiche";
+import Pesquisar from "@/app/pesquisar";
 
 export default function Cabecalho() {
   const [showRenderLogin, setRenderLogin] = useState(false);
-
+  const [searchVisible, setSearchVisible] = useState(false);
+  const isDesktop = useMedia("(min-width: 992px)");
+  const handleSearchClick = () => {
+    setSearchVisible(!searchVisible);
+  };
   const handleRenderLogin = () => {
     setRenderLogin(!showRenderLogin);
   };
@@ -39,7 +45,7 @@ export default function Cabecalho() {
             ></img>
             <div className={styles.info}>Usuário</div>
           </button>
-          <button className={styles.pesquisar}>
+          <button className={styles.pesquisar} onClick={handleSearchClick}>
             <img className={styles.buttonstyle} src="/map.svg"></img>
             <div className={styles.info}>Pesquisar</div>
           </button>
@@ -54,6 +60,12 @@ export default function Cabecalho() {
           </button>
         </div>
       </div>
+      {searchVisible && isDesktop && (
+        <Pesquisar
+          setRenderLogin={setRenderLogin}
+          setSearchVisible={setSearchVisible}
+        />
+      )}
     </>
   );
 }

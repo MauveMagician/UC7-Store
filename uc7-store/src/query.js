@@ -66,3 +66,17 @@ export async function getProductsByCategory(category) {
   }
   return products;
 }
+
+export async function SearchProducts(terms) {
+  await connectToDatabase(); // Ensure database connection
+  const products = await Products.find({
+    $or: [
+      { name: { $regex: RegExp(terms), $options: "i" } },
+      { category: { $regex: RegExp(terms), $options: "i" } },
+    ],
+  });
+  if (!products) {
+    throw new Error(`Product with category ${category} not found.`);
+  }
+  return products;
+}
