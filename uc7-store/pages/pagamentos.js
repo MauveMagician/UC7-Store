@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "./pagamentos.module.css";
+import Resumo from "@/app/resumo.js";
 
 export default function Home() {
   return (
@@ -148,7 +149,7 @@ export default function Home() {
               </div>
             </div>
           </fieldset>
-
+          <Resumo />
           <p className={styles.pfooter}>
             <input className={styles.input2} type="checkbox" />
             Aceito os termos e condições
