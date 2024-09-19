@@ -1,9 +1,11 @@
 import Link from "next/link";
 import styles from "./footer.module.css";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Login from "@/app/login";
+import { UserContext } from "@/context/UserContext";
 
 export default function Footer() {
+  const { user, setUser } = useContext(UserContext);
   const [showConta, setConta] = useState(false);
   const handleConta = () => {
     setConta(!showConta);
@@ -62,17 +64,15 @@ export default function Footer() {
         </div>
         <div className={styles.minhaconta}>
           <p className={styles.titulo}>Minha Conta </p>
-          <p
-            className={styles.letranormal}
-            onClick={() => handleConta()}
-            id={"#cabecalho"}
-          >
-            Minha Conta
-          </p>
+          <Link href={"#login"} className={styles.link}>
+            <p className={styles.letranormal} onClick={() => handleConta()}>
+              Minha Conta
+            </p>
+          </Link>
           <p className={styles.letranormal}>
             {" "}
             <Link href={"/carrinho"} className={styles.link}>
-              Meu carrinho
+              {user ? <p>Meu carrinho</p> : <></>}
             </Link>
           </p>
           <p className={styles.letranormal}>

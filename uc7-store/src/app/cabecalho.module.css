@@ -43,6 +43,8 @@
   background: transparent;
   cursor: pointer;
   transition: transform 0.4s;
+  width: 60px;
+  height: 60px;
 }
 
 .carrinho:hover {
@@ -54,11 +56,12 @@
   display: block;
 }
 .email {
-  grid-area: b;
   border: none;
   background: transparent;
   cursor: pointer;
   transition: transform 0.4s;
+  width: 60px;
+  height: 60px;
 }
 .email:hover {
   z-index: 2;
@@ -69,11 +72,12 @@
   display: block;
 }
 .pesquisar {
-  grid-area: c;
   border: none;
   background: transparent;
   cursor: pointer;
   transition: transform 0.4s;
+  width: 60px;
+  height: 60px;
 }
 .pesquisar:hover {
   z-index: 2;
@@ -84,11 +88,12 @@
   display: block;
 }
 .menu {
-  grid-area: d;
   border: none;
   background: transparent;
   cursor: pointer;
   transition: transform 0.4s;
+  width: 60px;
+  height: 60px;
 }
 
 .menu a {
@@ -118,10 +123,10 @@
 }
 
 .menuNormal {
-  display: grid;
+  display: flex;
   gap: 25px;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-areas: "a b c d";
+  justify-content: space-evenly;
+  flex: 1 1 0;
 }
 
 @media (max-width: 600px) {

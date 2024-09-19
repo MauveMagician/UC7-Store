@@ -185,6 +185,15 @@ app.prepare().then(async () => {
     }
   });
 
+  server.post("/api/logout", async (req, res) => {
+    req.session.destroy((err) => {
+      if (err) {
+        return res.status(500).json({ message: "Failed to log out" });
+      }
+      res.status(200).json({ message: "Logout successful" });
+    });
+  });
+
   // New API route to add a product to the cart
   server.post("/api/cart/add", async (req, res) => {
     const { productId, quantity } = req.body;
