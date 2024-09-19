@@ -21,7 +21,9 @@ export default function Cabecalho() {
     <>
       {showRenderLogin && <Login setRenderLogin={setRenderLogin} />}
       <div className={styles.container}>
-        <button className={styles.contato}>contate-me</button>
+        <Link href={"#footer"}>
+          <button className={styles.contato}>contate-me</button>
+        </Link>
 
         <div className={styles.loja}>
           {" "}

@@ -13,7 +13,9 @@ export default function Footer() {
       {showConta && <Login setConta={setConta} />}
       <div className={styles.containerprincipal}>
         <div className={styles.atendimento}>
-          <p className={styles.titulo}>Atendimento</p>
+          <p className={styles.titulo} id={"footer"}>
+            Atendimento
+          </p>
           <p className={styles.contatos}>
             <img
               className={styles.svgstyle}

@@ -63,40 +63,30 @@
   cursor: pointer;
 }
 .letranormal:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
   transition: transform 0.1s;
 }
 
 @media (max-width: 600px) {
   .containerprincipal {
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1vh;
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
   .containerprincipal {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: max-content max-content;
-    position: relative;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1vh;
-    height: fit-content;
-  }
-  .atendimento {
-    height: fit-content;
-  }
-  .institucional {
-    height: fit-content;
-  }
-  .minhaconta {
-    height: fit-content;
-  }
-  .nossasredes {
-    height: fit-content;
   }
 }
-@media only screen and (min-width: 768px) {
+
+@media only screen and (min-width: 1025px) {
   .containerprincipal {
-    height: 80%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1vh;
   }
 }
