@@ -1,9 +1,9 @@
-import Subtotal from "@/app/subtotal";
+import Login from "@/app/login";
 
 export default function Home() {
   return (
     <>
-      <Subtotal></Subtotal>
+      <Login></Login>
     </>
   );
 }
