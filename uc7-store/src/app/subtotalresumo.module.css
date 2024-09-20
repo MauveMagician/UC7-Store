@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 95vw;
+  margin-top: 0px;
+}
+.p {
+  font-size: 1.5rem;
+  font-weight: 600;
+}

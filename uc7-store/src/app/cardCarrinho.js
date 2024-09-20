@@ -44,6 +44,7 @@ export default function CardCarrinho({ data }) {
     })
       .then((response) => response.json())
       .then((data) => console.log(data));
+    router.reload();
   };
 
   return (

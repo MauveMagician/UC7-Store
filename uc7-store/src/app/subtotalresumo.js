@@ -1,9 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
-import Link from "next/link";
 
-import styles from "./subtotal.module.css";
-export default function Subtotal() {
+import styles from "./subtotalresumo.module.css";
+export default function SubtotalResumo() {
   const [subtotal, setSubtotal] = useState(0);
   useEffect(() => {
     fetch(`/api/data/subtotal`)
@@ -16,9 +15,6 @@ export default function Subtotal() {
   return (
     <div className={styles.container}>
       <p className={styles.p}>Subtotal: R$ {subtotal} </p>
-      <Link href={"/pagamentos"}>
-        <button className={styles.money}>Finalizar compra</button>
-      </Link>
     </div>
   );
 }

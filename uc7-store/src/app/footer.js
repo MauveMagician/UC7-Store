@@ -1,9 +1,18 @@
 import Link from "next/link";
 import styles from "./footer.module.css";
+import { useState, useContext } from "react";
+import Login from "@/app/login";
+import { UserContext } from "@/context/UserContext";
 
 export default function Footer() {
+  const { user, setUser } = useContext(UserContext);
+  const [showConta, setConta] = useState(false);
+  const handleConta = () => {
+    setConta(!showConta);
+  };
   return (
     <>
+      {showConta && <Login setConta={setConta} />}
       <div className={styles.containerprincipal}>
         <div className={styles.atendimento}>
           <p className={styles.titulo} id={"footer"}>
@@ -46,17 +55,26 @@ export default function Footer() {
         </div>
         <div className={styles.institucional}>
           <p className={styles.titulo}>Institucional</p>
-          <p className={styles.letranormal}>Fale conosco</p>
-          <p className={styles.letranormal}>Formas de envio e Pagamento</p>
-          <p className={styles.letranormal}>Política de Trocas e Devoluções</p>
-          <p className={styles.letranormal}>Política de privacidade</p>
-          <p className={styles.letranormal}>Quem Somos</p>
+          <p className={styles.letranormal}>
+            {" "}
+            <Link href={"/suporte"} className={styles.link}>
+              Fale conosco
+            </Link>
+          </p>
         </div>
         <div className={styles.minhaconta}>
-          <p className={styles.titulo}>Minha Conta</p>
-          <p className={styles.letranormal}>Minha conta</p>
-          <p className={styles.letranormal}>Meus Pedidos</p>
-          <p className={styles.letranormal}>Meu carrinho</p>
+          <p className={styles.titulo}>Minha Conta </p>
+          <Link href={"#login"} className={styles.link}>
+            <p className={styles.letranormal} onClick={() => handleConta()}>
+              Minha Conta
+            </p>
+          </Link>
+          <p className={styles.letranormal}>
+            {" "}
+            <Link href={"/carrinho"} className={styles.link}>
+              {user ? <p>Meu carrinho</p> : <></>}
+            </Link>
+          </p>
           <p className={styles.letranormal}>
             {" "}
             <Link href={"/mapa"} className={styles.link}>

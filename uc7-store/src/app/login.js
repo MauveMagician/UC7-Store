@@ -49,6 +49,7 @@ export default function Login({ setRenderLogin }) {
       console.error("Failed to sign in.");
     }
   };
+
   return (
     <>
       <div className={`${styles.planet} `}>
@@ -58,12 +59,22 @@ export default function Login({ setRenderLogin }) {
               <p className={styles.p}>Oi {user}</p>
               <button
                 className={styles.button}
-                onClick={() => {
-                  document.cookie =
-                    "session=; max-age=0; path=/; SameSite=Strict; Secure";
-                  document.cookie =
-                    "username=; max-age=0; path=/; SameSite=Strict; Secure";
-                  setUser(null);
+                onClick={async () => {
+                  const response = await fetch("/api/logout", {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                  });
+                  if (response.ok) {
+                    document.cookie =
+                      "session=; max-age=0; path=/; SameSite=Strict; Secure";
+                    document.cookie =
+                      "username=; max-age=0; path=/; SameSite=Strict; Secure";
+                    setUser(null);
+                  } else {
+                    console.error("Failed to log out.");
+                  }
                 }}
               >
                 Logout

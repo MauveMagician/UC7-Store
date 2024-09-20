@@ -156,6 +156,25 @@ app.prepare().then(async () => {
       res.status(500).json({ message: "Failed to remove product from cart" });
     }
   });
+  server.post("/api/finalizar", async (req, res) => {
+    const userId = req.session.userId;
+    if (!userId) {
+      return res.status(401).json({ message: "User not authenticated" });
+    }
+    const data = await db.collection("carrinho").findOne({ userId: userId });
+    await db
+      .collection("pedidos")
+      .insertOne({ userId: userId, dados: data.cart });
+    //atualizar o carrinho do usuario para um pedido novo
+    await db
+      .collection("carrinho")
+      .updateOne({ userId: userId }, { $set: { cart: [] } }); //preencher com o objeto correto
+    await db
+      .collection("dados-usuario")
+      .insertOne({ userId: userId, dados: req.body });
+
+    res.status(200).json({ message: "Pedido finalizado com sucesso" });
+  });
 
   server.post("/api/signup", async (req, res) => {
     console.log(req.body);
@@ -183,6 +202,15 @@ app.prepare().then(async () => {
     } else {
       res.status(401).json({ message: "Invalid username or password" });
     }
+  });
+
+  server.post("/api/logout", async (req, res) => {
+    req.session.destroy((err) => {
+      if (err) {
+        return res.status(500).json({ message: "Failed to log out" });
+      }
+      res.status(200).json({ message: "Logout successful" });
+    });
   });
 
   // New API route to add a product to the cart
