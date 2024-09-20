@@ -116,3 +116,64 @@
   transform: scale(1.1);
   transition: transform 0.6s;
 }
+@media (max-width: 430px) {
+  .container {
+    width: 100%;
+  }
+  .title {
+    font-size: 4vw;
+    margin-bottom: 2vw;
+  }
+  .info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .asterisco {
+    font-size: 2.2vw;
+  }
+  .input {
+    width: 310px;
+    height: 2.4vw;
+  }
+  .numero {
+    gap: 2vw;
+  }
+  .input3 {
+    width: 150px;
+    height: 2.4vw;
+  }
+  .img {
+    height: 8vw;
+  }
+  .pag {
+    width: 80px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .pfooter {
+    width: 240px;
+  }
+  .buttons {
+    width: 350px;
+  }
+  .button {
+    width: 100px;
+    height: 40px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  .button2 {
+    width: 100px;
+    height: 40px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+}
